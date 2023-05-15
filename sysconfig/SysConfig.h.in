@@ -1,0 +1,12 @@
+#pragma once
+
+#define VERSION_MAJOR @LearnLua_VERSION_MAJOR@
+#define VERSION_MINOR @LearnLua_VERSION_MINOR@
+#define VERSION_PATCH @LearnLua_VERSION_PATCH@
+
+#cmakedefine TCH_OS_MACOSX
+#cmakedefine TCH_OS_UNIX
+#cmakedefine TCH_OS_LINUX
+#cmakedefine TCH_OS_WIN32
+
+#define SYSTEM_NAME "@CMAKE_SYSTEM_NAME@"
