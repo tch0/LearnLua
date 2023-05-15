@@ -99,16 +99,6 @@ endif ()
 
 
 #===========================================================================================================================#
-#                    System Config header
-#===========================================================================================================================#
-configure_file(
-    ${CMAKE_SOURCE_DIR}/sysconfig/SysConfig.h.in
-    ${CMAKE_BINARY_DIR}/sysconfig/SysConfig.h
-)
-set(sysconfig_dir ${CMAKE_BINARY_DIR}/sysconfig)
-
-
-#===========================================================================================================================#
 #            compiler flags
 #===========================================================================================================================#
 # general compiler flags, C++ standard, warnings, etc.
@@ -133,7 +123,9 @@ target_compile_options(general_cxx_compiler_flags INTERFACE
 # extra compiler flags, like for inevitable annoying third-party library headers' warnings
 add_library(extra_cxx_compiler_flags INTERFACE)
 target_compile_options(extra_cxx_compiler_flags INTERFACE
-    # "$<${CXX_COMPILER_IS_GNU_LIKE}:$<BUILD_INTERFACE:-Wno-volatile>>"
+    # $<${CXX_COMPILER_IS_GNU_LIKE}:$<BUILD_INTERFACE:
+    #     -Wno-volatile
+    # >>
 )
 
 
