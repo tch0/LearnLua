@@ -191,7 +191,7 @@ endif()
 #===========================================================================================================================#
 #            facilities for copying necessary files/dirs after specific target built (only when different)
 #===========================================================================================================================#
-# copy all files/dirs of a directory to a subdirectory inside target file directory
+# copy all files/dirs in a directory to a subdirectory inside target file directory
 # usage example: copy_dir_contents_to_target_file_dir(test resources ${CMAKE_SOURCE_DIR}/resources)
 # set dirname to "." for copying contents to target file directory
 function(copy_dir_contents_to_target_file_dir target dirname source_dirs...)
