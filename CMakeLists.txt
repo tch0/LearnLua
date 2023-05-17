@@ -189,20 +189,39 @@ endif()
 
 
 #===========================================================================================================================#
-#            copy necessary files after every build (only when different)
+#            facilities for copying necessary files/dirs after specific target built (only when different)
 #===========================================================================================================================#
-function(copy_dir_to_target_file_dir target dirname source)
+# copy all files/dirs of a directory to a subdirectory inside target file directory
+# usage example: copy_dir_contents_to_target_file_dir(test resources ${CMAKE_SOURCE_DIR}/resources)
+# set dirname to "." for copying contents to target file directory
+function(copy_dir_contents_to_target_file_dir target dirname source_dirs...)
+    set(source_dirs ${ARGV})
+    list(POP_FRONT source_dirs)
+    list(POP_FRONT source_dirs)
     if (CMAKE_VERSION VERSION_GREATER_EQUAL 3.26)
         add_custom_command(TARGET ${target} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${source} $<TARGET_FILE_DIR:${target}>/${dirname} # copy_directory_if_different need cmake 3.26
+            COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${source_dirs} $<TARGET_FILE_DIR:${target}>/${dirname} # copy_directory_if_different need cmake 3.26
             COMMAND_EXPAND_LISTS
         )
     elseif()
             add_custom_command(TARGET ${target} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${source} $<TARGET_FILE_DIR:${target}>/${dirname}
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${source_dirs} $<TARGET_FILE_DIR:${target}>/${dirname}
             COMMAND_EXPAND_LISTS
         )
     endif()
+endfunction()
+
+# copy specific files to a subdirectory inside target file directory
+# usage example: copy_files_to_target_file_dir(test resouces ${CMAKE_CURRENT_SOURCE_DIR}/hello.jpg ${CMAKE_SOURCE_DIR}/example.obj)
+# set dirname to "." for copying files to target file directory
+function(copy_files_to_target_file_dir target dirname files...)
+    set(files ${ARGV})
+    list(POP_FRONT files)
+    list(POP_FRONT files)
+    add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${files} $<TARGET_FILE_DIR:${target}>/${dirname}
+        COMMAND_EXPAND_LISTS
+    )
 endfunction()
 
 
@@ -210,8 +229,8 @@ endfunction()
 #            functions for defining instance
 #===========================================================================================================================#
 # define instance from sources
-# usage example: (define_instance_from_sources test test.cpp test.h hello.cpp)
-function(define_instance_from_sources target ...)
+# usage example: define_instance_from_sources(test test.cpp test.h hello.cpp)
+function(define_instance_from_sources target sources...)
     set(sources ${ARGV})
     list(POP_FRONT sources)
     add_executable(${target} ${sources})
@@ -240,7 +259,8 @@ function(define_instance_from_sources target ...)
 endfunction()
 
 #define instance from directories
-function(define_instance_from_directories target ...)
+# usage example: define_instance_from_directories(test test/src test/inc)
+function(define_instance_from_directories target dirs...)
     # collect all sources/headers/header directories
     set(dirs ${ARGV})
     list(POP_FRONT dirs)
