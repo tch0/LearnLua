@@ -30,3 +30,5 @@ Lua手册：https://www.lua.org/manual/5.4/manual.html
   - [4.5 在C中处理yield](04TheAPI/#45-%E5%9C%A8c%E4%B8%AD%E5%A4%84%E7%90%86yield)
   - [4.6 类型与函数](04TheAPI/#46-%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%87%BD%E6%95%B0)
   - [4.7 调试接口](04TheAPI/#47-%E8%B0%83%E8%AF%95%E6%8E%A5%E5%8F%A3)
+- [5. 辅助库](05TheAuxiliaryLibrary/#5-%E8%BE%85%E5%8A%A9%E5%BA%93)
+  - [5.1 函数和类型](05TheAuxiliaryLibrary/#51-%E5%87%BD%E6%95%B0%E5%92%8C%E7%B1%BB%E5%9E%8B)
