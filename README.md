@@ -45,3 +45,4 @@ Lua手册：https://www.lua.org/manual/5.4/manual.html
   - [6.8 输入输出设施](06TheStandardLibraries/#68-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E6%96%BD)
   - [6.9 操作系统设施](06TheStandardLibraries/#69-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%96%BD)
   - [6.10 调试库](06TheStandardLibraries/#610-%E8%B0%83%E8%AF%95%E5%BA%93)
+- [7. Lua宿主程序](07LuaStandAlone/#7-lua%E5%AE%BF%E4%B8%BB%E7%A8%8B%E5%BA%8F)
