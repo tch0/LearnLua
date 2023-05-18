@@ -1,6 +1,8 @@
-# Lua语法
+# Lua学习
 
 Lua手册：https://www.lua.org/manual/5.4/manual.html
+
+## Lua语法
 
 介绍：
 - Lua将过程式语法和基于关联数组和可扩展语义的数据描述结构结合起来。
@@ -8,7 +10,7 @@ Lua手册：https://www.lua.org/manual/5.4/manual.html
 - Lua分发程序中包含了一个宿主程序名为`lua`，这个程序使用Lua库提供了一个完整的独立的Lua解释器，可以用于交互式执行和命令行解释执行。
 - 也可以直接使用这个库而从而将Lua嵌入项目，包含Lua库的头文件，然后通过其提供的C API来编译和执行Lua程序。这使Lua作为一个库工作，没有main程序，而是嵌入到宿主程序中。宿主程序可以调用一个Lua函数或者执行一段Lua程序、写入或者读取Lua变量、注册可以被Lua代码调用的C函数。
 
-目录：
+文档目录：
 - [2. 基本概念](02BasicConcepts/#2-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5)
   - [2.1 值与类型](02BasicConcepts/#21-%E5%80%BC%E4%B8%8E%E7%B1%BB%E5%9E%8B)
   - [2.2 环境与全局环境](02BasicConcepts/#22-%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83)
@@ -32,3 +34,14 @@ Lua手册：https://www.lua.org/manual/5.4/manual.html
   - [4.7 调试接口](04TheAPI/#47-%E8%B0%83%E8%AF%95%E6%8E%A5%E5%8F%A3)
 - [5. 辅助库](05TheAuxiliaryLibrary/#5-%E8%BE%85%E5%8A%A9%E5%BA%93)
   - [5.1 函数和类型](05TheAuxiliaryLibrary/#51-%E5%87%BD%E6%95%B0%E5%92%8C%E7%B1%BB%E5%9E%8B)
+- [6. Lua标准库](06TheStandardLibraries/#6-lua%E6%A0%87%E5%87%86%E5%BA%93)
+  - [6.1 基本函数](06TheStandardLibraries/#61-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0)
+  - [6.2 协程控制](06TheStandardLibraries/#62-%E5%8D%8F%E7%A8%8B%E6%8E%A7%E5%88%B6)
+  - [6.3 模块](06TheStandardLibraries/#63-%E6%A8%A1%E5%9D%97)
+  - [6.4 字符串操作](06TheStandardLibraries/#64-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C)
+  - [6.5 UTF-8支持](06TheStandardLibraries/#65-utf-8%E6%94%AF%E6%8C%81)
+  - [6.6 表操作](06TheStandardLibraries/#66-%E8%A1%A8%E6%93%8D%E4%BD%9C)
+  - [6.7 数学函数](06TheStandardLibraries/#67-%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0)
+  - [6.8 输入输出设施](06TheStandardLibraries/#68-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E6%96%BD)
+  - [6.9 操作系统设施](06TheStandardLibraries/#69-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%96%BD)
+  - [6.10 调试库](06TheStandardLibraries/#610-%E8%B0%83%E8%AF%95%E5%BA%93)
