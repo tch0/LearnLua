@@ -51,3 +51,8 @@ target_link_libraries(lua
 
 add_library(lua::lib ALIAS lua)
 add_library(lua::header ALIAS lua-header)
+
+# lua executable
+add_executable(lua_exe ${srcDir}/lua.c)
+target_link_libraries(lua_exe PUBLIC lua)
+set_target_properties(lua_exe PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
